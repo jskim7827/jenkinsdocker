@@ -23,7 +23,7 @@ pipeline {
 
 // steps
 def buildApp() {
-	dir ('section_4/' ) {
+	dir ('templates/' ) {
 		def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
 	}
 }
