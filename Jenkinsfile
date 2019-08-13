@@ -1,30 +1,31 @@
 #!/usr/bin/groovy
-
 pipeline {
-    agent any
+	agent any
 
-    options {
-        disableConcurrentBuilds()
-    }
+	    stages {
 
-    stages {
-
-        stage("Build") {
-            steps { buildApp() }
+		stage('CheckoutSCM') {
+			steps {
+				echo 'Building..'
+			}
 		}
 
-        stage("Deploy - Dev") {
-            steps { deploy('dev') }
+
+
+
+        stage('Git Checkout') {
+			steps {
+				echo 'Testing..'
+			}
 		}
 
-	}
-}
 
 
-// steps
-def buildApp() {
-	dir ('templates/' ) {
-		def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
-	}
-}
 
+		stage('Python Unit Test') {
+			steps {
+				echo 'Testing..'
+			}
+		}
+
+	    }
