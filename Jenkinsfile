@@ -1,23 +1,19 @@
 #!/usr/bin/groovy
+// Scripted Pipeline
+node {
 
-pipeline {
-    agent any
+	stage('Build') {
+		echo 'Building....'
+	}
 
-    options {
-        disableConcurrentBuilds()
-    }
+	stage('Test') {
+		echo 'Building....'
+	}
 
-    stages {
-
-        stage("Build") {
-            steps { buildApp() }
-		}
-
-        stage("Deploy - Dev") {
-            steps { deploy('dev') }
-		}
-
+	stage('Deploy') {
+		echo 'Deploying....'
 	}
 }
+
 
 
